@@ -1,0 +1,30 @@
+
+<div class="row mx-0" style="height:100vh">
+  <div class="col-4 login_form center_div">
+      <div class="w-75">
+          <h2 class="logo">Petinder</h2>
+          <h1 class="bem_vindo">Bem vindo de volta</h1>
+          <form #form="ngForm">
+              <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Email</mat-label>
+                  <input matInput [formControl]="login.email" type="email">
+                  <mat-error *ngIf="login.email.invalid">{{getErrorEmailMessage()}}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-100 pb-0 mb-0">
+                  <mat-label>Senha</mat-label>
+                  <input matInput [formControl]="login.senha" [type]="hide ? 'password' : 'text'">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                  <mat-error *ngIf="login.senha.invalid">{{getErrorSenhaMessage()}}</mat-error>
+              </mat-form-field>
+              <p routerLink="/cadastro-usuario" style="cursor:pointer">Ainda não possui uma conta?        <span class="ml-5">Cadastre-se</span></p>
+              <button mat-flat-button class="primary_button w-100" (click)="auth()" type="submit" [disabled]="!formValid()">Entrar</button>
+          </form>
+      </div>
+  </div>
+  <div class="col center_div" style="background: rgb(61, 40, 0);">
+      <img src="assets/img/login2.webp" width="100%" alt="login" />
+  </div>
+</div>

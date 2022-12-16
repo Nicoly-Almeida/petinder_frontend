@@ -1,0 +1,50 @@
+{
+  "usuario": [
+    {
+      "id": 1,
+      "nome": "Nicoly Figueredo pessoa de Almeida",
+      "email": "nicolyejady@gmail.com",
+      "pet": [
+        1
+      ],
+      "senha": "",
+      "repitasenha": ""
+    },
+    {
+      "id": 2,
+      "nome": "Nicoly Figueredo pessoa de Almeida",
+      "email": "nicolyejady@gmail.com",
+      "pet": [
+        2
+      ],
+      "senha": "frgthyj",
+      "repitasenha": "1245"
+    },
+    {
+      "id": 3,
+      "nome": "julyana",
+      "email": "jul@gmail.com",
+      "pet": [
+        3
+      ],
+      "senha": "1236",
+      "repitasenha": "1236"
+    }
+  ],
+  "pet": [
+    {
+      "id": 2,
+      "nome": "Dobby",
+      "raca": "viralata",
+      "sexo": "masculino",
+      "idade": "1"
+    },
+    {
+      "id": 3,
+      "nome": "bolinha",
+      "raca": "pug",
+      "sexo": "masculino",
+      "idade": "5"
+    }
+  ]
+}
