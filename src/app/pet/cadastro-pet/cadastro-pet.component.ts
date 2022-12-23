@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pet } from 'src/app/shared/model/pet';
-import { PetFirestoreService } from 'src/app/shared/services/pet-firestore.service';
+import { PetService } from 'src/app/shared/services/pet.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,7 +15,7 @@ export class CadastroPetComponent implements OnInit {
 
   pet : Pet;
 
-  constructor(router: Router, private PetService: PetFirestoreService) {
+  constructor(router: Router, private PetService: PetService) {
     this.router = router;
     this.pet = new Pet('', {});
   }

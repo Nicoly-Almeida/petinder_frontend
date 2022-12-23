@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PetFirestoreService } from './pet-firestore.service';
+import { UsuarioService } from './usuario.service';
 
-describe('PetFirestoreService', () => {
-  let service: PetFirestoreService;
+describe('UsuarioService', () => {
+  let service: UsuarioService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PetFirestoreService);
+    service = TestBed.inject(UsuarioService);
   });
 
   it('should be created', () => {

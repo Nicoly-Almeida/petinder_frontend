@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pet } from 'src/app/shared/model/pet';
-import { PetFirestoreService } from 'src/app/shared/services/pet-firestore.service';
+import { PetService } from 'src/app/shared/services/pet.service';
 
 @Component({
   selector: 'app-listagem-pet',
@@ -12,7 +12,7 @@ export class ListagemPetComponent implements OnInit {
   router: Router;
   pets: Pet[];
 
-  constructor(private petService: PetFirestoreService, router: Router) {
+  constructor(private petService: PetService, router: Router) {
     this.router = router;
     this.pets = new Array<Pet>();
   }

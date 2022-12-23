@@ -4,24 +4,30 @@ import  { CadastroUsuarioComponent } from './usuario/cadastro-usuario/cadastro-u
 import { ListagemPetComponent } from './pet/listagem-pet/listagem-pet.component';
 import { CadastroPetComponent } from './pet/cadastro-pet/cadastro-pet.component';
 import { LoginFormComponent } from './core/authentication/login-form/login-form.component';
+import { GuardService } from './core/guards/guard.service';
+import { NotGuardService } from './core/guards/not-guard.service'
 
 const routes: Routes = [
   {
-    path: 'cadastro-usuario',
-    component: CadastroUsuarioComponent
+    path: '',
+    component: ListagemPetComponent,
+    children: [
+      { path: '', component: ListagemPetComponent},
+      { path: 'cadastro-pet', component: CadastroPetComponent},
+    ],
+    canActivate: [GuardService]
   },
   {
-    path: 'cadastro-pet',
-    component: CadastroPetComponent
+    path: '',
+    component: LoginFormComponent,
+    children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: 'login', component: LoginFormComponent },
+      { path: 'cadastro-usuario', component: CadastroUsuarioComponent },
+    ],
+    canActivate: [NotGuardService]
   },
-  {
-    path: 'listagem-pet',
-    component: ListagemPetComponent
-  },
-  {
-    path: 'login',
-    component: LoginFormComponent
-  }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

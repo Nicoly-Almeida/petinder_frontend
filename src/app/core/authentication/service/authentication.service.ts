@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
-import { UsuarioFirestoreService } from 'src/app/shared/services/usuario-firestore.service';
+import { UsuarioService } from 'src/app/shared/services/usuario.service';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor(private usuarioService: UsuarioFirestoreService, private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   login(email:string, senha:string) : boolean{
     this.usuarioService.listar().subscribe(item => {
