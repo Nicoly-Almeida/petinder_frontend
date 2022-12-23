@@ -6,22 +6,23 @@ import { CadastroPetComponent } from './pet/cadastro-pet/cadastro-pet.component'
 import { LoginFormComponent } from './core/authentication/login-form/login-form.component';
 import { GuardService } from './core/guards/guard.service';
 import { NotGuardService } from './core/guards/not-guard.service'
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ListagemPetComponent,
+    component: HomeComponent,
     children: [
       { path: '', component: ListagemPetComponent},
       { path: 'cadastro-pet', component: CadastroPetComponent},
+      { path: 'pet/:id', component: CadastroPetComponent}
     ],
     canActivate: [GuardService]
   },
   {
     path: '',
-    component: LoginFormComponent,
+    component: HomeComponent,
     children: [
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginFormComponent },
       { path: 'cadastro-usuario', component: CadastroUsuarioComponent },
     ],

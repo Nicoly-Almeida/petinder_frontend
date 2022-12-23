@@ -12,7 +12,7 @@ import { PetService } from 'src/app/shared/services/pet.service';
   styleUrls: ['./cadastro-usuario.component.scss']
 })
 export class CadastroUsuarioComponent implements OnInit {
-
+  hide = true;
   router: Router;
 
   usuario : Usuario;
@@ -25,10 +25,24 @@ export class CadastroUsuarioComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  //erro pois nao consigo passar o pet pra o usuario
-  //como corrigir?
 
   inserirUsuario(){
+    if (!this.usuario.email || !this.usuario.nome || !this.usuario.repitasenha || !this.usuario.senha){
+      Swal.fire({
+        icon: 'warning',
+        title: 'Oops...',
+        text: 'Preencha todos os dados!',
+      })
+      return
+    }
+    if (this.usuario.senha != this.usuario.repitasenha){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'As senhas devem ser iguais!',
+      })
+      return
+    }
     this.UsuarioService.inserir(this.usuario).subscribe(
       users => {
         Swal.fire({

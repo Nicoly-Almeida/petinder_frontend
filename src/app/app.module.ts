@@ -11,10 +11,10 @@ import { CadastroUsuarioComponent } from './usuario/cadastro-usuario/cadastro-us
 
 import {HttpClientModule} from '@angular/common/http';
 import { ListagemPetComponent } from './pet/listagem-pet/listagem-pet.component';
-import { FirestoreModule } from './firestore/firestore.module';
 import { LoginFormComponent } from './core/authentication/login-form/login-form.component';
 import { CadastroPetComponent } from './pet/cadastro-pet/cadastro-pet.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CadastroUsuarioComponent,
     ListagemPetComponent,
     LoginFormComponent,
-    CadastroPetComponent
+    CadastroPetComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FirestoreModule,
     MaterialModule,
     ReactiveFormsModule
   ],

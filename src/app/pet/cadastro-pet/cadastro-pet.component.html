@@ -2,10 +2,15 @@
   <div class="row mx-0">
     <div class="col-7 mt-5">
       <form class="example-form row mx-5 mt-5">
-        <h1 class="center cadastro mb-5">Cadastro Pet</h1>
+        <h1 class="center cadastro mb-5" *ngIf="!editar">Cadastro Pet</h1>
+        <h1 class="center cadastro mb-5" *ngIf="editar">Edição Pet</h1>
       <mat-form-field  appearance="outline">
         <mat-label>Nome do pet</mat-label>
-        <input matInput [(ngModel)]="pet.nome" name="nomepet"><br>
+        <input matInput [(ngModel)]="pet.nome" name="nome"><br>
+      </mat-form-field>
+      <mat-form-field  appearance="outline">
+        <mat-label>Link para foto do pet</mat-label>
+        <input matInput [(ngModel)]="pet.foto" name="foto"><br>
       </mat-form-field>
       <mat-form-field appearance="outline"  class="col-4">
         <mat-label>Raça</mat-label>
@@ -21,7 +26,8 @@
       </mat-form-field>
     </form>
     <div class="d-flex justify-content-center mt-4">
-      <button class="botao center px-5" mat-raised-button color="primary" (click)="inserirPet()">Cadastrar</button>
+      <button class="botao center px-5" mat-raised-button color="primary" *ngIf="!editar" (click)="inserirPet()">Cadastrar</button>
+      <button class="botao center px-5" mat-raised-button color="primary" *ngIf="editar" (click)="editarPet()">Editar</button>
     </div>
     </div>
     <div class="col-5">
